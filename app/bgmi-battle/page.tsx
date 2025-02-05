@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react";
 import {
-  Gamepad2Icon,
-  UsersIcon,
-  BuildingIcon,
-  GraduationCapIcon,
-  UsersIcon as TeamIcon,
-} from "lucide-react";
+  FaGamepad,
+  FaUsers,
+  FaBuilding,
+  FaGraduationCap,
+} from "react-icons/fa";
 import { DataTable } from "@/components/data-table";
 import { StatsCard } from "@/components/stats-card";
 import { supabase } from "@/lib/supabase";
@@ -77,25 +76,25 @@ export default function BGMIBattlePage() {
         <StatsCard
           title="Total Participants"
           value={stats.totalParticipants}
-          icon={UsersIcon}
+          icon={FaUsers}
           color="bg-yellow-500"
         />
         <StatsCard
           title="Departments"
           value={stats.uniqueDepartments}
-          icon={BuildingIcon}
+          icon={FaBuilding}
           color="bg-blue-500"
         />
         <StatsCard
           title="Average Year"
           value={stats.averageYear}
-          icon={GraduationCapIcon}
+          icon={FaGraduationCap}
           color="bg-purple-500"
         />
         <StatsCard
           title="Total Teams"
           value={stats.totalTeams}
-          icon={TeamIcon}
+          icon={FaUsers}
           color="bg-green-500"
         />
       </div>
