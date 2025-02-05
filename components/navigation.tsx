@@ -1,17 +1,24 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { GamepadIcon, FilmIcon, MusicIcon, VideoIcon, Gamepad2Icon, DoorOpenIcon } from 'lucide-react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import {
+  GamepadIcon,
+  FilmIcon,
+  MusicIcon,
+  VideoIcon,
+  Gamepad2Icon,
+  DoorOpenIcon,
+} from "lucide-react";
 
 const navigation = [
-  { name: 'Movie Quiz', href: '/movie-quiz', icon: FilmIcon },
-  { name: 'Decipher Blitz', href: '/decipher-blitz', icon: GamepadIcon },
-  { name: 'Hack a Note', href: '/hack-a-note', icon: MusicIcon },
-  { name: 'Reelity Show', href: '/reelity-show', icon: VideoIcon },
-  { name: 'BGMI Battle', href: '/bgmi-battle', icon: Gamepad2Icon },
-  { name: 'Escape Room', href: '/escape-room', icon: DoorOpenIcon },
+  { name: "Movie Quiz", href: "/movie-quiz", icon: FilmIcon },
+  { name: "Decipher Blitz", href: "/decipher-blitz", icon: GamepadIcon },
+  { name: "Hack a Note", href: "/hack-a-note", icon: MusicIcon },
+  { name: "Reelity Show", href: "/reelity-show", icon: VideoIcon },
+  { name: "BGMI Battle", href: "/bgmi-battle", icon: Gamepad2Icon },
+  { name: "Escape Room", href: "/escape-room", icon: DoorOpenIcon },
 ];
 
 export function Navigation() {
@@ -23,7 +30,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold">
-              Event Dashboard
+              Glitchcraft
             </Link>
           </div>
           <div className="hidden md:block">
@@ -35,10 +42,10 @@ export function Navigation() {
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      'px-3 py-2 rounded text-sm font-medium transition-all duration-200',
+                      "px-3 py-2 rounded text-sm font-medium transition-all duration-200",
                       pathname === item.href
-                        ? 'bg-black text-white dark:bg-white dark:text-black transform -translate-y-1'
-                        : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                        ? "bg-black text-white dark:bg-white dark:text-black transform -translate-y-1"
+                        : "hover:bg-gray-100 dark:hover:bg-gray-800"
                     )}
                   >
                     <div className="flex items-center space-x-2">
