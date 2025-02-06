@@ -12,17 +12,17 @@ import { StatsCard } from "@/components/stats-card";
 import { supabase } from "@/lib/supabase";
 
 const columns = [
-  { key: "full_name", label: "Full Name" },
-  { key: "email_id", label: "Email" },
-  { key: "phone_number", label: "Phone" },
-  { key: "department", label: "Department" },
-  { key: "usn", label: "USN" },
-  { key: "year_of_study", label: "Year" },
-  { key: "entry_type", label: "Entry Type" },
-  { key: "player_ign", label: "Player IGN" },
-  { key: "bgmi_player_id", label: "BGMI ID" },
-  { key: "team_name", label: "Team Name" },
-  { key: "team_leader_ign", label: "Team Leader IGN" },
+  { key: "Full_Name", label: "Full Name" },
+  { key: "Email_ID", label: "Email" },
+  { key: "Phone_Number", label: "Phone" },
+  { key: "Department", label: "Department" },
+  { key: "USN", label: "USN" },
+  { key: "Year_of_Study", label: "Year" },
+  { key: "Entry_Type", label: "Entry Type" },
+  { key: "Player_IGN", label: "Player IGN" },
+  { key: "BGMI_Player_ID", label: "BGMI ID" },
+  { key: "Team_Name", label: "Team Name" },
+  { key: "Team_Leader_IGN", label: "Team Leader IGN" },
 ];
 
 export default function BGMIBattlePage() {
@@ -37,7 +37,7 @@ export default function BGMIBattlePage() {
   useEffect(() => {
     async function fetchData() {
       const { data: registrations, error } = await supabase
-        .from("bgmi_battle")
+        .from("BGMI_BATTLE")
         .select("*");
 
       if (error) {

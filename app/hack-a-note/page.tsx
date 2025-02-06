@@ -1,22 +1,28 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { MusicIcon, UsersIcon, BuildingIcon, GraduationCapIcon, ClockIcon } from 'lucide-react';
-import { DataTable } from '@/components/data-table';
-import { StatsCard } from '@/components/stats-card';
-import { supabase } from '@/lib/supabase';
+import { useEffect, useState } from "react";
+import {
+  MusicIcon,
+  UsersIcon,
+  BuildingIcon,
+  GraduationCapIcon,
+  ClockIcon,
+} from "lucide-react";
+import { DataTable } from "@/components/data-table";
+import { StatsCard } from "@/components/stats-card";
+import { supabase } from "@/lib/supabase";
 
 const columns = [
-  { key: 'full_name', label: 'Full Name' },
-  { key: 'email_id', label: 'Email' },
-  { key: 'phone_number', label: 'Phone' },
-  { key: 'department', label: 'Department' },
-  { key: 'usn', label: 'USN' },
-  { key: 'year_of_study', label: 'Year' },
-  { key: 'type_of_performance', label: 'Performance Type' },
-  { key: 'instrument_name', label: 'Instrument' },
-  { key: 'genre_of_music', label: 'Genre' },
-  { key: 'performance_duration', label: 'Duration (mins)' },
+  { key: "Full_Name", label: "Full Name" },
+  { key: "Email_ID", label: "Email" },
+  { key: "Phone_Number", label: "Phone" },
+  { key: "Department", label: "Department" },
+  { key: "USN", label: "USN" },
+  { key: "Year_of_Study", label: "Year" },
+  { key: "Type_of_Performance", label: "Performance Type" },
+  { key: "Instrument_Name", label: "Instrument" },
+  { key: "Genre_of_Music", label: "Genre" },
+  { key: "Performance_Duration", label: "Duration (mins)" },
 ];
 
 export default function HackANotePage() {
@@ -31,11 +37,11 @@ export default function HackANotePage() {
   useEffect(() => {
     async function fetchData() {
       const { data: registrations, error } = await supabase
-        .from('hack_a_note')
-        .select('*');
+        .from("HACK_A_NOTE")
+        .select("*");
 
       if (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         return;
       }
 
@@ -44,7 +50,10 @@ export default function HackANotePage() {
       const departments = new Set(registrations.map((r) => r.department));
       const years = registrations.map((r) => Number(r.year_of_study));
       const avgYear = years.reduce((a, b) => a + b, 0) / years.length;
-      const totalDuration = registrations.reduce((sum, r) => sum + (r.performance_duration || 0), 0);
+      const totalDuration = registrations.reduce(
+        (sum, r) => sum + (r.performance_duration || 0),
+        0
+      );
 
       setStats({
         totalParticipants: registrations.length,

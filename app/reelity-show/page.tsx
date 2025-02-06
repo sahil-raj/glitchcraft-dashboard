@@ -1,19 +1,25 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { VideoIcon, UsersIcon, BuildingIcon, GraduationCapIcon, Share2Icon } from 'lucide-react';
-import { DataTable } from '@/components/data-table';
-import { StatsCard } from '@/components/stats-card';
-import { supabase } from '@/lib/supabase';
+import { useEffect, useState } from "react";
+import {
+  VideoIcon,
+  UsersIcon,
+  BuildingIcon,
+  GraduationCapIcon,
+  Share2Icon,
+} from "lucide-react";
+import { DataTable } from "@/components/data-table";
+import { StatsCard } from "@/components/stats-card";
+import { supabase } from "@/lib/supabase";
 
 const columns = [
-  { key: 'full_name', label: 'Full Name' },
-  { key: 'email_id', label: 'Email' },
-  { key: 'phone_number', label: 'Phone' },
-  { key: 'department', label: 'Department' },
-  { key: 'usn', label: 'USN' },
-  { key: 'year_of_study', label: 'Year' },
-  { key: 'social_media_handle', label: 'Social Media' },
+  { key: "Full_Name", label: "Full Name" },
+  { key: "Email_ID", label: "Email" },
+  { key: "Phone_Number", label: "Phone" },
+  { key: "Department", label: "Department" },
+  { key: "USN", label: "USN" },
+  { key: "Year_of_Study", label: "Year" },
+  { key: "Social_Media_Handle", label: "Social Media" },
 ];
 
 export default function ReelityShowPage() {
@@ -28,11 +34,11 @@ export default function ReelityShowPage() {
   useEffect(() => {
     async function fetchData() {
       const { data: registrations, error } = await supabase
-        .from('reelity_show')
-        .select('*');
+        .from("REELITY_SHOW")
+        .select("*");
 
       if (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         return;
       }
 
@@ -41,10 +47,12 @@ export default function ReelityShowPage() {
       const departments = new Set(registrations.map((r) => r.department));
       const years = registrations.map((r) => Number(r.year_of_study));
       const avgYear = years.reduce((a, b) => a + b, 0) / years.length;
-      const platforms = new Set(registrations.map((r) => {
-        const handle = r.social_media_handle || '';
-        return handle.includes('@') ? handle.split('@')[1].split('/')[0] : '';
-      }));
+      const platforms = new Set(
+        registrations.map((r) => {
+          const handle = r.social_media_handle || "";
+          return handle.includes("@") ? handle.split("@")[1].split("/")[0] : "";
+        })
+      );
 
       setStats({
         totalParticipants: registrations.length,

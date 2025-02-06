@@ -1,19 +1,24 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { FilmIcon, UsersIcon, BuildingIcon, GraduationCapIcon } from 'lucide-react';
-import { DataTable } from '@/components/data-table';
-import { StatsCard } from '@/components/stats-card';
-import { supabase } from '@/lib/supabase';
+import { useEffect, useState } from "react";
+import {
+  FilmIcon,
+  UsersIcon,
+  BuildingIcon,
+  GraduationCapIcon,
+} from "lucide-react";
+import { DataTable } from "@/components/data-table";
+import { StatsCard } from "@/components/stats-card";
+import { supabase } from "@/lib/supabase";
 
 const columns = [
-  { key: 'full_name', label: 'Full Name' },
-  { key: 'email_id', label: 'Email' },
-  { key: 'phone_number', label: 'Phone' },
-  { key: 'department', label: 'Department' },
-  { key: 'usn', label: 'USN' },
-  { key: 'year_of_study', label: 'Year' },
-  { key: 'team_name', label: 'Team Name' },
+  { key: "Full_Name", label: "Full Name" },
+  { key: "Email_ID", label: "Email" },
+  { key: "Phone_Number", label: "Phone" },
+  { key: "Department", label: "Department" },
+  { key: "USN", label: "USN" },
+  { key: "Year_of_Study", label: "Year" },
+  { key: "Team_Name", label: "Team Name" },
 ];
 
 export default function MovieQuizPage() {
@@ -28,11 +33,11 @@ export default function MovieQuizPage() {
   useEffect(() => {
     async function fetchData() {
       const { data: registrations, error } = await supabase
-        .from('movie_quiz')
-        .select('*');
+        .from("MOVIE_QUIZ")
+        .select("*");
 
       if (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         return;
       }
 
