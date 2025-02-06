@@ -44,10 +44,10 @@ export default function MovieQuizPage() {
       setData(registrations);
 
       // Calculate stats
-      const departments = new Set(registrations.map((r) => r.department));
-      const years = registrations.map((r) => Number(r.year_of_study));
+      const departments = new Set(registrations.map((r) => r.Department));
+      const years = registrations.map((r) => Number(r.Year_of_Study));
       const avgYear = years.reduce((a, b) => a + b, 0) / years.length;
-      const teams = new Set(registrations.map((r) => r.team_name));
+      const teams = new Set(registrations.map((r) => r.Team_Name));
 
       setStats({
         totalParticipants: registrations.length,

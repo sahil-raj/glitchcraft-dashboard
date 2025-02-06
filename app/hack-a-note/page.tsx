@@ -47,11 +47,11 @@ export default function HackANotePage() {
 
       setData(registrations);
 
-      const departments = new Set(registrations.map((r) => r.department));
-      const years = registrations.map((r) => Number(r.year_of_study));
+      const departments = new Set(registrations.map((r) => r.Department));
+      const years = registrations.map((r) => Number(r.Year_of_Study));
       const avgYear = years.reduce((a, b) => a + b, 0) / years.length;
       const totalDuration = registrations.reduce(
-        (sum, r) => sum + (r.performance_duration || 0),
+        (sum, r) => sum + (r.Performance_Duration || 0),
         0
       );
 

@@ -44,12 +44,12 @@ export default function ReelityShowPage() {
 
       setData(registrations);
 
-      const departments = new Set(registrations.map((r) => r.department));
-      const years = registrations.map((r) => Number(r.year_of_study));
+      const departments = new Set(registrations.map((r) => r.Department));
+      const years = registrations.map((r) => Number(r.Year_of_Study));
       const avgYear = years.reduce((a, b) => a + b, 0) / years.length;
       const platforms = new Set(
         registrations.map((r) => {
-          const handle = r.social_media_handle || "";
+          const handle = r.Social_Media_Handle || "";
           return handle.includes("@") ? handle.split("@")[1].split("/")[0] : "";
         })
       );
